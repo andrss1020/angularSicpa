@@ -1,0 +1,16 @@
+<button
+  *ngIf="validateSubmit() === BUTTON_TYPE.LOADING"
+  class="btn btn-secondary d-flex flex-row justify-content-center align-items-center"
+  disabled="true"
+>
+</button>
+<button
+  *ngIf="validateSubmit() !== BUTTON_TYPE.LOADING"
+  [type]="validateSubmit()"
+  (click)="onClick()"
+  [class]="classBtn"
+  [id]="idButton"
+  [disabled]="disabled"
+>
+  Text Button
+</button>

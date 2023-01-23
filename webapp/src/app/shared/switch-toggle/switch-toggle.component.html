@@ -1,0 +1,31 @@
+<form name="form" [formGroup]="form">
+  <div class="form-group">
+    <ui-switch
+      color="#b0e4e4"
+      defaultBgColor="#70707065"
+      switchColor="#19b8ad"
+      switchOffColor="#707070"
+      [class]="class"
+      [formControlName]="statusAlternativeName"
+      labelOn="ON"
+      labelOff="OFF"
+    >
+    </ui-switch>
+
+    <!-- ERROR MESSAGES -->
+    <div
+      *ngIf="
+        form.get(statusAlternativeName)!.invalid &&
+        (form.get(statusAlternativeName)!.dirty || form.get(statusAlternativeName)!.touched || showWarnings)
+      "
+    >
+      <small
+        class="form-text text-danger"
+        *ngIf="form.get(statusAlternativeName)?.errors?.required"
+        jhiTranslate="global.messages.validate.required"
+      >
+        Your Status is required.
+      </small>
+    </div>
+  </div>
+</form>

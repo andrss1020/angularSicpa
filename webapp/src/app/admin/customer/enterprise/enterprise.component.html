@@ -1,0 +1,33 @@
+<div class="container-xxl py-4 py-lg-5" style="background:bisque">
+  <H1 class="d-flex justify-content-center" style="font-size: xxx-large">TECHNICAL INTERVIEW</H1>
+  <H1 class="d-flex">LIST OF ENTERPRISES</H1>
+  <section style="background:yellowgreen">
+    <button class="btn btn-danger" (click)="create()">Create new Enterprises</button>
+    <div class="table-responsive mb-2" *ngIf="enterprisesList && enterprisesList.length > 0">
+      <table id="table-body" class="table table-borderless table-striped border">
+        <thead>
+          <tr>
+            <th scope="col">NAME</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">ADDRESS</th>
+            <th scope="col">PHONE</th>
+            <th scope="col">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody id="table-body" *ngIf="enterprisesList">
+          <tr *ngFor="let enterprise of enterprisesList; let i = index">
+            <td>{{ enterprise.name }}</td>
+            <td>{{ enterprise.status }}</td>
+            <td>{{ enterprise.address }}</td>
+            <td>{{ enterprise.phone }}</td>
+            <td>
+              <button class="btn btn-danger" style = "margin-right: 1rem">Delete</button>
+              <button class="btn btn-primary" (click)="edit(enterprise.id!)">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
